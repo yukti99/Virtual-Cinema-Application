@@ -1,0 +1,39 @@
+.login {
+  .left-section {
+    background: #000;
+    color: #fff;
+    height: 100vh;
+    padding: 32px 64px;
+    .main-content {
+      line-height: 48px;
+      padding-top: 128px;
+      font-weight: bold;
+    }
+  }
+  .right-section {
+    padding: 32px 64px;
+    .login-form {
+      padding-top: 64px;
+      width: 75%;
+      margin: auto;
+      .header {
+        font-weight: bold;
+        font-size: 32px;
+        padding-bottom: 32px;
+      }
+      label {
+        font-weight: bold;
+      }
+    }
+    .position_relative {
+      position: relative;
+    }
+    .google_logo {
+      position: absolute;
+      left: 32px;
+    }
+  }
+}
+.success-text {
+  color: #08ad36;
+}

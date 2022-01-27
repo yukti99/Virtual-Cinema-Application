@@ -1,0 +1,64 @@
+.user-dashboard {
+  .left-section {
+    height: 100vh;
+    padding: 32px 64px;
+    .main-content {
+      padding-top: 64px;
+      .card {
+        margin-bottom: 64px;
+      }
+    }
+  }
+  background-color: rgb(196, 219, 240);
+}
+
+.watchClass{
+  padding-top: 50px;
+  padding-left:130px;
+  padding-right:130px;
+  padding-bottom:20px;
+  width:100%;
+  justify-content: center;
+
+
+}
+
+
+.upStreamsClass{
+  padding-top: 50px;
+  padding-left:230px;
+  padding-right:230px;
+  padding-bottom:40px;
+  font-size: 20px;
+  
+  
+
+}
+.logoclass {
+  padding-top:40px;
+  padding-left: 230px;
+  height: 70px;
+  
+}
+.success-text {
+  color: #08ad36;
+}
+
+.text-right {
+  text-align: right;
+}
+
+
+.primary_header {
+  background-color: #1565d8;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 20px 20px 0px 0px !important;
+}
+
+
+
+.textClass{
+  font-size:18px;
+  color:black;
+}

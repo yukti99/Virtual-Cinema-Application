@@ -1,0 +1,38 @@
+.create-stream {
+  .left-section {
+    height: 100vh;
+    padding: 32px 64px;
+    background: #000;
+    color: #fff;
+    .main-content {
+      padding-top: 40%;
+      text-align: center;
+    }
+  }
+  .right-section {
+    padding: 32px 64px;
+    .create-stream-form {
+      padding-top: 64px;
+      width: 75%;
+      margin: auto;
+      .header {
+        font-weight: bold;
+        font-size: 32px;
+        padding-bottom: 32px;
+      }
+      label {
+        font-weight: bold;
+      }
+    }
+    .position_relative {
+      position: relative;
+    }
+    .google_logo {
+      position: absolute;
+      left: 32px;
+    }
+  }
+}
+.success-text {
+  color: #08ad36;
+}

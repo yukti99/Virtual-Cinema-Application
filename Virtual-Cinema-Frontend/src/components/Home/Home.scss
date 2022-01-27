@@ -1,0 +1,27 @@
+.home {
+  .header {
+    font-weight: bold;
+    font-size: 32px;
+    padding-top: 98px;
+    padding-bottom: 16px;
+  }
+  .left-section {
+    padding: 32px 64px;
+    .main-content {
+      padding-top: 64px;
+      .card {
+        margin-bottom: 64px;
+      }
+    }
+  }
+  .right-section {
+    height: 100vh;
+    padding: 32px 64px;
+    background: #000;
+    color: #fff;
+    .main-content {
+      padding-top: 40%;
+      text-align: center;
+    }
+  }
+}

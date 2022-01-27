@@ -1,0 +1,36 @@
+.user-dashboard {
+    .left-section {
+      height: 100vh;
+      padding: 32px 64px;
+      .main-content {
+        padding-top: 64px;
+        .card {
+          margin-bottom: 64px;
+        }
+      }
+    }
+  
+    .left-section {
+      padding: 32px 64px;
+      .main-content {
+        padding-top: 64px;
+        .card {
+          margin-bottom: 64px;
+        }
+      }
+    }
+  }
+  .success-text {
+    color: #08ad36;
+  }
+  
+  .text-right {
+    text-align: right;
+  }
+  
+  .primary_header {
+    background-color: #1565d8;
+    color: #fff;
+    border-radius: 20px 20px 0px 0px !important;
+  }
+  

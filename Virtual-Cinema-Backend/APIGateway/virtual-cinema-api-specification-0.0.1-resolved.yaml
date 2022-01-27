@@ -1,0 +1,521 @@
+---
+openapi: 3.0.0
+info:
+  title: Virtual Cinema Web App API Specification
+  description: Virtual Cinema web app API calls specification and documentation. This app allows you chat, talk, and watch movies together in real time.
+  version: 0.0.1
+tags:
+- name: Event
+  description: Everything about your Events
+- name: Message
+  description: Messages related to an Event
+- name: Connection
+  description: Connections of users to a watch event through sessions
+- name: History
+  description: Historial of users' sessions at the platform
+- name: Account
+  description: Users' accounts in the platform
+- name: Trending
+  description: Connections of users to a watch event through sessions
+paths:
+  /event/{id}:
+    get:
+      tags:
+      - Event
+      summary: Get One Event
+      operationId: getEvent
+      parameters:
+      - name: id
+        in: path
+        description: Id of the event
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Event not found
+        "200":
+          description: Successfully
+    put:
+      tags:
+      - Event
+      summary: Update Event
+      operationId: updateEvent
+      parameters:
+      - name: id
+        in: path
+        description: id of the event that need to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Event'
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Event not found
+        "405":
+          description: Validation exception
+    delete:
+      tags:
+      - Event
+      summary: Delete Event
+      operationId: deleteEvent
+      parameters:
+      - name: id
+        in: path
+        description: Event id to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Event not found
+  /event:
+    get:
+      tags:
+      - Event
+      summary: Get All User Events
+      operationId: listEvents
+      responses:
+        "200":
+          description: Successfully
+    post:
+      tags:
+      - Event
+      summary: Create Event
+      operationId: addEvent
+      requestBody:
+        $ref: '#/components/requestBodies/Event'
+      responses:
+        "405":
+          description: Invalid input
+  /message/{id}:
+    get:
+      tags:
+      - Message
+      summary: Get Message for event
+      operationId: getMessage
+      parameters:
+      - name: id
+        in: path
+        description: Id of the message
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Message not found
+        "200":
+          description: Successfully
+  /message:
+    post:
+      tags:
+      - Message
+      summary: Publish a message
+      operationId: publishMessage
+      requestBody:
+        $ref: '#/components/requestBodies/Message'
+      responses:
+        "405":
+          description: Invalid input
+  /connection/{event_id}:
+    get:
+      tags:
+      - Connection
+      summary: Get all user socket addresses for event
+      operationId: getConnection
+      parameters:
+      - name: event_id
+        in: path
+        description: Id of the event
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Event not found
+        "200":
+          description: Successfully
+    put:
+      tags:
+      - Connection
+      summary: Update client socket address for event
+      operationId: updateConnection
+      parameters:
+      - name: event_id
+        in: path
+        description: id of the event whose that need to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Connection'
+      responses:
+        "400":
+          description: Invalid Event ID supplied
+        "404":
+          description: Event not found
+        "405":
+          description: Validation exception
+    delete:
+      tags:
+      - Connection
+      summary: Remove client socket address for event
+      operationId: deleteConnection
+      parameters:
+      - name: event_id
+        in: path
+        description: Event id to whose connection will be deleted
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid ID supplied
+        "404":
+          description: Event not found
+  /connection:
+    post:
+      tags:
+      - Connection
+      summary: Publish client socket address for event
+      operationId: publishConnection
+      requestBody:
+        $ref: '#/components/requestBodies/Connection'
+      responses:
+        "405":
+          description: Invalid input
+  /history/connection/{session_id}:
+    get:
+      tags:
+      - History
+      summary: Get single session history
+      operationId: getHistory
+      parameters:
+      - name: session_id
+        in: path
+        description: Id of the session
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Session not found
+        "200":
+          description: Successfully
+    post:
+      tags:
+      - History
+      summary: Publish history to db if user prompts
+      operationId: publishHistory
+      parameters:
+      - name: session_id
+        in: path
+        description: Id of the session
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/History'
+      responses:
+        "405":
+          description: Invalid input
+  /history/{no_sessions}/user/{user_id}:
+    get:
+      tags:
+      - History
+      summary: Get last 10 sessions' history
+      operationId: getLastHistories
+      parameters:
+      - name: no_sessions
+        in: path
+        description: Number of sessions
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      - name: user_id
+        in: path
+        description: Sessions User's id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successfully
+    delete:
+      tags:
+      - History
+      summary: Delete oldest 10 session's history
+      operationId: deleteLastHistories
+      parameters:
+      - name: no_sessions
+        in: path
+        description: Number of session to delete
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      - name: user_id
+        in: path
+        description: Sessions User's id
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successfully
+  /history/user/{user_id}:
+    delete:
+      tags:
+      - History
+      summary: Delete a particular user's history
+      operationId: deleteHistory
+      parameters:
+      - name: user_id
+        in: path
+        description: User id to whose session will be deleted
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid User ID supplied
+        "404":
+          description: User not found
+  /auth/{account_id}:
+    get:
+      tags:
+      - Account
+      summary: Get a user account on login
+      operationId: getAccount
+      parameters:
+      - name: account_id
+        in: path
+        description: Id of the User's Account
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "404":
+          description: Account not found
+        "200":
+          description: Successfully
+    put:
+      tags:
+      - Account
+      summary: Update account details when user updates profile
+      operationId: updateAccount
+      parameters:
+      - name: account_id
+        in: path
+        description: id of the account that need to be updated
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        $ref: '#/components/requestBodies/Account'
+      responses:
+        "400":
+          description: Invalid Account ID supplied
+        "404":
+          description: Account not found
+        "405":
+          description: Validation exception
+  /auth:
+    post:
+      tags:
+      - Account
+      summary: Save a user account on registration with the service
+      operationId: saveAccount
+      requestBody:
+        $ref: '#/components/requestBodies/Account'
+      responses:
+        "200":
+          description: Successfully
+        "405":
+          description: Invalid input
+components:
+  schemas:
+    Region:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          default: ""
+    Event:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+          default: ""
+        region:
+          $ref: '#/components/schemas/Region'
+        account:
+          $ref: '#/components/schemas/Account'
+      xml:
+        name: Event
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        message:
+          type: string
+          default: ""
+        account:
+          $ref: '#/components/schemas/Account'
+        event:
+          $ref: '#/components/schemas/Event'
+      xml:
+        name: Message
+    Connection:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        socket_address:
+          type: string
+          default: ""
+        event:
+          $ref: '#/components/schemas/Event'
+        created_at:
+          type: string
+          format: date-time
+        is_active:
+          type: boolean
+          default: false
+      xml:
+        name: Connection
+    History:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        id_session:
+          type: string
+          default: ""
+      xml:
+        name: History
+    Account:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        username:
+          type: string
+          default: ""
+        first_name:
+          type: string
+          default: ""
+        last_name:
+          type: string
+          default: ""
+        email:
+          type: string
+          default: ""
+        password:
+          type: string
+          default: ""
+      xml:
+        name: Account
+  requestBodies:
+    Event:
+      description: Event object that needs to be added to the platform
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Event'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Event'
+      required: true
+    Message:
+      description: Message object that needs to be published about an event
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Message'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Message'
+      required: true
+    Connection:
+      description: Connection object that needs to be added to the platform
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Connection'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Connection'
+      required: true
+    History:
+      description: History object of sessions of the platform's users
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/History'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/History'
+      required: true
+    Account:
+      description: Users Accounts
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Account'
+        application/xml:
+          schema:
+            $ref: '#/components/schemas/Account'
+      required: true
+
