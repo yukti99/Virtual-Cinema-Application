@@ -8,7 +8,11 @@ When was the last time you visited a movie theatre? <br>
   - Here friends can watch together the videos from websites which allow video embedding – YouTube, Vimeo, Streamable, and even from Facebook! 
 ### Application Demo
 https://www.youtube.com/watch?app=desktop&v=l3i_CE1B1TU&feature=youtu.be
-![](images/1.PNG)![](images/2.PNG)
+
+| | |
+|:-------------------------:|:-------------------------:|
+|<img src="images/1.PNG" width="700" height="300" /> | <img src="images/2.PNG" width="700" height="300" />
+|<img src="images/5.PNG" width="700" height="300" /> | <img src="images/4.PNG" width="700" height="300" /> |
 
 ### Features Supported
   - User Login and Authentication
