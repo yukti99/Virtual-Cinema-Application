@@ -6,7 +6,8 @@ When was the last time you visited a movie theatre? <br>
    between you and your loved ones. 
   - This web app allows hosting a virtual watch party, similar to the popular Netflix Party chrome extension, but with more features for a cherishable experience.
   - Here friends can watch together the videos from websites which allow video embedding – YouTube, Vimeo, Streamable, and even from Facebook! 
-
+### Application Demo
+https://www.youtube.com/watch?app=desktop&v=l3i_CE1B1TU&feature=youtu.be
 ### Features Supported
   - User Login and Authentication
   - Creating new Youtube watch party
@@ -82,7 +83,7 @@ When was the last time you visited a movie theatre? <br>
       - Route 53 (DNS)
       
 ### API's used in the Application
-![](APIs.PNG)
+![](APIs.png)
       
 ### Implementation
 
