@@ -8,6 +8,8 @@ When was the last time you visited a movie theatre? <br>
   - Here friends can watch together the videos from websites which allow video embedding – YouTube, Vimeo, Streamable, and even from Facebook! 
 ### Application Demo
 https://www.youtube.com/watch?app=desktop&v=l3i_CE1B1TU&feature=youtu.be
+![](images/1.PNG)![](images/2.PNG)
+
 ### Features Supported
   - User Login and Authentication
   - Creating new Youtube watch party
@@ -59,6 +61,7 @@ https://www.youtube.com/watch?app=desktop&v=l3i_CE1B1TU&feature=youtu.be
   
 ### Architecture Diagram of the Application
 ![](images/archi.png)
+<!-- <img src="images/archi.png" width="1000" height="600" /> -->
   
 ### Design Details
   #### Frontend Design
@@ -84,6 +87,7 @@ https://www.youtube.com/watch?app=desktop&v=l3i_CE1B1TU&feature=youtu.be
       
 ### API's used in the Application
 ![](images/APIs.png)
+<!-- <img src="images/APIs.png" width="1000" height="400" /> -->
       
 ### Implementation
 
