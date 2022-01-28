@@ -58,7 +58,7 @@ https://www.youtube.com/watch?app=desktop&v=l3i_CE1B1TU&feature=youtu.be
   `npm start`
   
 ### Architecture Diagram of the Application
-![](archi.png)
+![](images/archi.png)
   
 ### Design Details
   #### Frontend Design
@@ -83,7 +83,7 @@ https://www.youtube.com/watch?app=desktop&v=l3i_CE1B1TU&feature=youtu.be
       - Route 53 (DNS)
       
 ### API's used in the Application
-![](APIs.png)
+![](images/APIs.png)
       
 ### Implementation
 
